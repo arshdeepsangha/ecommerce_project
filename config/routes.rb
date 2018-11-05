@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
   
-  get 'about/index'
+  #get 'about/index'
   # get 'vehicles/index'
   # get 'vehicles/show'
   resources :vehicles, only:[:index, :show]
+  resources :about , only:[:index]
   # #get 'cars', to: 'cars#index'
 
   root to: 'vehicles#index'
