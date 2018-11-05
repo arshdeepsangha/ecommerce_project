@@ -10,12 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_05_001608) do
+ActiveRecord::Schema.define(version: 2018_11_05_001817) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
+    t.string "firstname"
+    t.string "lastname"
+    t.string "address"
+    t.string "city"
+    t.string "email"
+    t.integer "province_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["province_id"], name: "index_customers_on_province_id"
   end
 
   create_table "deals", force: :cascade do |t|
