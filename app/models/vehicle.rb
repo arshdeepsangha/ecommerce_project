@@ -4,4 +4,6 @@ class Vehicle < ApplicationRecord
 
   has_many :orders
   has_many :customers, :through => :orders
+
+  paginates_per 5
 end
