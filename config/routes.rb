@@ -9,6 +9,12 @@ Rails.application.routes.draw do
   get ':permalink' , to: 'pages#permalink'
   get 'static_about', to: 'pages#about' , as: 'about'
 
+  resources :search ,only:[:index] do
+    collection do
+      get 'results'
+    end
+  end
+
 
 
   root to: 'vehicles#index'

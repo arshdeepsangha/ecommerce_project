@@ -1,3 +1,13 @@
+ <div>
+      <%= form_tag(results_search_index_path, method: "get") do %>
+      <%= label_tag(:q, "Search for Models:") %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("Search") %>
+      <% end %>
+    </div>
+
+
+
 <h1><%=@car.manufacturer%> <%=@car.model%></h1>
 <p><img src="<%=@car.image%>" alt="Car" onerror="this.src='/assets/imageNotFound.jpg'" height="300" width="500"></p>
 <p><b>Manufacturer: </b><%=@car.manufacturer%></p>
