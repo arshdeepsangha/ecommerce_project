@@ -1,0 +1,98 @@
+[
+    { 
+        "manufacturer" : "Porsche",
+        "model" : "911",
+        "price" : 135000.00,
+        "body_type" : "Coupe",
+        "engine" : "3.8L Flat 6 Cylinder",
+        "transmission" : "Automatic",
+        "stock" : 10
+    }, 
+    { 
+        "manufacturer" : "Nissan",
+        "model" : "GT-R",
+        "price" : 80000.00,
+        "body_type" : "Coupe",
+        "engine" : "3.8L Twin Turbo V6",
+        "transmission" : "6 Speed Automatic",
+        "stock" : 12
+    },{ 
+        "manufacturer" : "BMW",
+        "model" : "M3",
+        "price" : 60500.00,
+        "body_type" : "Sedan",
+        "engine" : "3.0L M TwinPower Turbo inline 6 Cylinder",
+        "transmission" : "7 Speed Automatic",
+        "stock" : 9
+        
+    },{ 
+        "manufacturer" : "Audi",
+        "model" : "S5",
+        "price" : 53000.00,
+        "body_type" : "Sedan",
+        "engine" : "V6 Cylinder",
+        "transmission" : "7 Speed Automatic",
+        "stock" : 8
+        
+    },{ 
+        "manufacturer" : "Audi",
+        "model" : "TT",
+        "price" : 40000.00,
+        "body_type" : "Coupe",
+        "engine" : "2.5L turbocharged FSI I5",
+        "transmission" : "6 Speed Manual",
+        "stock" : 11
+       
+    },
+    { 
+        "manufacturer" : "Tesla",
+        "model" : "S",
+        "price" : 72700.00,
+        "body_type" : "Sedan",
+        "engine" : "3-phase AC induction motor",
+        "transmission" : "1 Speed Fixed Gear",
+        "stock" : 10
+       
+    },
+    { 
+        "manufacturer" : "Daimler AG",
+        "model" : "Mercedes-Benz SLK-Class",
+        "price" : 125400.00,
+        "body_type" : "Roadster",
+        "engine" : "5.5L V8 Cylinder",
+        "transmission" : "9 Speed Automatic",
+        "stock" : 9
+       
+    },
+    { 
+        "manufacturer" : "Lexus",
+        "model" : "LC Z100",
+        "price" : 100000.00,
+        "body_type" : "Fastback Coupe",
+        "engine" : "5.0L V8 Cylinder",
+        "transmission" : "10 Speed Automatic",
+        "stock" : 4
+       
+    },
+    { 
+        "manufacturer" : "Automobili Lamborghini",
+        "model" : "Aventador",
+        "price" : 100000.00,
+        "body_type" : "Coupe",
+        "engine" : "6.5L V12 Cylinder",
+        "transmission" : "7 Speed Semi-Automatic",
+        "stock" : 3
+       
+    },
+    { 
+        "manufacturer" : "Ferrari",
+        "model" : "Aventador",
+        "price" : 100000.00,
+        "body_type" : "Coupe",
+        "engine" : "6.3L V12 Cylinder",
+        "transmission" : "7 Speed Dual-Clutch Automated Manual",
+        "stock" : 2
+       
+    }
+]
+
