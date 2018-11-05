@@ -1,0 +1,12 @@
+<h1>Vehicles</h1>
+
+
+<% @cars.each do |car_each|%>
+
+<p>Manufacturer: <%= car_each.manufacturer%></p>
+<p>Model: <%= link_to car_each.model, car_each%></p>
+<p><%=%></p>
+<p><%=%></p>
+<p><%=%></p>
+
+<% end %>
