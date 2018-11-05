@@ -15,6 +15,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :filter ,only:[:index] do
+    collection do
+      get 'results'
+    end
+  end
+
 
 
   root to: 'vehicles#index'

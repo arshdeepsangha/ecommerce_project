@@ -7,6 +7,7 @@
     <br>
     <br>
  <div>
+
  <div>
       <%= form_tag(results_search_index_path, method: "get") do %>
       <%= label_tag(:q, "Search:") %>
@@ -14,16 +15,20 @@
       <%= collection_select(:query_category,:category_id,Category.all.order(:name),:id,:name,{:include_blank => 'Model'})%>
       <%= submit_tag("Search") %>
       <% end %>
-    </div>
+</div>
+<%if @vehicles.empty?%>
+    <h1>No Vehicle Found</h1>
+<% else%>
+    <% if @vehicles.count == 1 %>
+      <h1><%=@vehicles.count%> vehicle found.</h1>
+    <% else %>
+      <h1><%=@vehicles.count%> vehicles found.</h1>
+    <% end %>
 
+    <%@vehicles.each do |car|%>
 
+    <p><img src="<%=car.image%>" alt="Car" onerror="this.src='/assets/imageNotFound.jpg'" height="300" width="500"></p>
+    <p>Model: <%= link_to car.model , car%></p>
 
-<h1><%=@car.manufacturer%> <%=@car.model%></h1> <b><%= @car.deal.name%></b>
-<p><img src="<%=@car.image%>" alt="Car" onerror="this.src='/assets/imageNotFound.jpg'" height="300" width="500"></p>
-<p><b>Manufacturer: </b><%=@car.manufacturer%></p>
-<p><b>Model: </b><%=@car.model%></p>
-<p><b>Price: </b>$<%=@car.price%></p>
-<p><b>Body Type: </b><%=@car.body_type%></p>
-<p><b>Engine: </b><%=@car.engine%></p>
-<p><b>Transmission: </b><%=@car.transmission%></p>
-<p><b>Stock: </b><%=@car.stock%></p>
+    <%end%>
+<% end%>

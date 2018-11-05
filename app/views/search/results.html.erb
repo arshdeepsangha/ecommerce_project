@@ -1,4 +1,13 @@
  <div>
+    <%= form_tag(results_filter_index_path, method: "get") do %>
+    <%= label_tag(:query, "Filter:") %>
+    <%= collection_select(:query_deal,:deal_id,Deal.all.order(:name),:id,:name,{:include_blank => ''})%>
+    <%= submit_tag("Filter") %>
+    <% end %>
+    <br>
+    <br>
+ <div>
+ <div>
       <%= form_tag(results_search_index_path, method: "get") do %>
       <%= label_tag(:q, "Search:") %>
       <%= text_field_tag(:q) %>
