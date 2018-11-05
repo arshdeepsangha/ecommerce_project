@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   
+  get 'about/index'
   # get 'vehicles/index'
   # get 'vehicles/show'
   resources :vehicles, only:[:index, :show]
