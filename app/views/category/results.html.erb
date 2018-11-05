@@ -26,17 +26,20 @@
       <% end %>
 </div>
 
-<h1>Vehicles</h1>
 
-<%= paginate @cars %>
+<%if @vehicles.empty?%>
+    <h1>No Vehicle Found</h1>
+<% else%>
+    <% if @vehicles.count == 1 %>
+      <h1><%=@vehicles.count%> vehicle found in <%= @vehicles.first.category.name %> category.</h1>
+    <% else %>
+      <h1><%=@vehicles.count%> vehicles found in <%= @vehicles.first.category.name %> category.</h1>
+    <% end %>
 
-<% @cars.each do |car_each|%>
+    <%@vehicles.each do |car|%>
 
-<p><img src="<%=car_each.image%>" alt="Car" onerror="this.src='/assets/imageNotFound.jpg'" height="300" width="500"></p>
-<p>Manufacturer: <%= car_each.manufacturer%></p>
-<p>Model: <%= link_to car_each.model, car_each%></p>
-<p><%=%></p>
-<p><%=%></p>
-<p><%=%></p>
+    <p><img src="<%=car.image%>" alt="Car" onerror="this.src='/assets/imageNotFound.jpg'" height="300" width="500"></p>
+    <p>Model: <%= link_to car.model , car%></p>
 
-<% end %>
+    <%end%>
+<% end%>
