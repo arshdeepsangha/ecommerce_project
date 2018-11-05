@@ -6,4 +6,6 @@ class Vehicle < ApplicationRecord
   has_many :customers, :through => :orders
 
   paginates_per 5
+
+  mount_uploader :image , ImageUploader
 end
