@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  manufacturer: MyString
+  model: MyString
+  price: 9.99
+  body_type: MyString
+  engine: MyString
+  transmission: MyString
+  stock: 1
+  deal: one
+  category: one
+
+two:
+  manufacturer: MyString
+  model: MyString
+  price: 9.99
+  body_type: MyString
+  engine: MyString
+  transmission: MyString
+  stock: 1
+  deal: two
+  category: two
