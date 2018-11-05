@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 
   resources :vehicles, only:[:index, :show]
   resources :pages ,only:[:show]
@@ -12,8 +14,6 @@ Rails.application.routes.draw do
   root to: 'vehicles#index'
 
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   
