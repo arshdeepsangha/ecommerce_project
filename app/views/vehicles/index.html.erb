@@ -1,10 +1,15 @@
  <div>
+    <h3>Filter Vehicles</h3>
+ <div>
+
+ <div>
       <%= form_tag(results_search_index_path, method: "get") do %>
-      <%= label_tag(:q, "Search for Models:") %>
+      <%= label_tag(:q, "Search:") %>
       <%= text_field_tag(:q) %>
+      <%= collection_select(:query_category,:category_id,Category.all.order(:name),:id,:name,{:include_blank => 'Model'})%>
       <%= submit_tag("Search") %>
       <% end %>
-    </div>
+</div>
 
 <h1>Vehicles</h1>
 
