@@ -1,3 +1,10 @@
+  <div>
+ <h2>Categories</h2>
+ <% cat = Category.all%>
+ <% cat.each do |c|%>
+    <p><%= link_to c.name ,results_category_index_path(:category => c.id)%></p>
+    <%end%>
+ <div>
  <div>
     <%= form_tag(results_filter_index_path, method: "get") do %>
     <%= label_tag(:query, "Filter:") %>
