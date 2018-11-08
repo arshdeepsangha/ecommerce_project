@@ -27,9 +27,9 @@
     <h1>No Vehicle Found</h1>
 <% else%>
     <% if @vehicles.count == 1 %>
-      <h1><%=@vehicles.count%> vehicle found.</h1>
+      <h1>We have <%=@vehicles.count%> vehicle in <%=@vehicles.first.deal.name %>.</h1>
     <% else %>
-      <h1><%=@vehicles.count%> vehicles found.</h1>
+      <h1>We have <%=@vehicles.count%> vehicles in <%=@vehicles.first.deal.name %>.</h1>
     <% end %>
 
     <%@vehicles.each do |car|%>

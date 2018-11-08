@@ -33,10 +33,6 @@
 <% @cars.each do |car_each|%>
 
 <p><img src="<%=car_each.image%>" alt="Car" onerror="this.src='/assets/imageNotFound.jpg'" height="300" width="500"></p>
-<p>Manufacturer: <%= car_each.manufacturer%></p>
-<p>Model: <%= link_to car_each.model, car_each%></p>
-<p><%=%></p>
-<p><%=%></p>
-<p><%=%></p>
+<p>Vehicle: <%= car_each.manufacturer%> <%= link_to car_each.model, car_each%></p>
 
 <% end %>

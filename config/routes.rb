@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'customer/signup'
+  get 'customer/signin'
+  get 'customer/signout'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
