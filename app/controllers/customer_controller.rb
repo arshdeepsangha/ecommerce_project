@@ -7,9 +7,14 @@ class CustomerController < ApplicationController
 
   def create
     @customer = Customer.create(customer_params)
-    @customer.save
-    flash[:notice]="You have signed up successfully.."
-    redirect_to root_path
+    if @customer.save
+    redirect_to root_path ,
+    notice: "You have signed up successfully.."
+    else
+      render 'signup'
+      flash[:notice]="Please try again"
+    end
+
   end
 
   def signin

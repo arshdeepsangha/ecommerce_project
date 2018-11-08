@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_06_033929) do
+ActiveRecord::Schema.define(version: 2018_11_08_045048) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 2018_11_06_033929) do
 
   create_table "customers", force: :cascade do |t|
     t.string "username"
-    t.string "password"
     t.string "firstname"
     t.string "lastname"
     t.string "address"
@@ -55,6 +54,7 @@ ActiveRecord::Schema.define(version: 2018_11_06_033929) do
     t.integer "province_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
     t.index ["province_id"], name: "index_customers_on_province_id"
   end
 
