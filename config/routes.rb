@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'customer/signup'
+  post 'customer/signup' => 'customer#create'
   get 'customer/signin'
   get 'customer/signout'
   devise_for :admin_users, ActiveAdmin::Devise.config
