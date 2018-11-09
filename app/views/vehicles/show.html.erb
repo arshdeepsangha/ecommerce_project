@@ -34,3 +34,7 @@
 <p><b>Engine: </b><%=@car.engine%></p>
 <p><b>Transmission: </b><%=@car.transmission%></p>
 <p><b>Stock: </b><%=@car.stock%></p>
+
+<% if user_signed_in? %>
+    <div><%= link_to 'Add to Cart'%></div>
+<% end %>

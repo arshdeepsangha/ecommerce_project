@@ -1,4 +1,4 @@
 class Order < ApplicationRecord
   belongs_to :vehicle
-  belongs_to :customer
+  belongs_to :user
 end
