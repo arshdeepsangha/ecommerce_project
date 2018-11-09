@@ -16,7 +16,12 @@
       <p><a href="http://localhost:3000/about">About Us</a></p>
       <p><a href="http://localhost:3000/contact">Contact Us</a></p>
       <p><%= link_to 'Sign Up',customer_signup_path%></p>
+      <p><%= link_to 'Sign In',customer_signin_path%></p>
+
     </header>
+    <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>

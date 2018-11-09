@@ -18,6 +18,15 @@ class CustomerController < ApplicationController
   end
 
   def signin
+    @customer = Customer.new
+  end
+
+  def login
+    @customer = Customer.find_by(params[:username])
+
+    if @customer.exist?
+      redirect_to root_path
+    end
   end
 
   def signout
