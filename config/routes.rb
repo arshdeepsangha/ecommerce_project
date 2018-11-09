@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-  get 'customer/signup'
-  post 'customer/signup' => 'customer#create'
-  get 'customer/signin'
-  post 'customer/signin' => 'customer#login'
-  get 'customer/signout'
+  #devise_for :users
+
+  devise_for :users, :controllers => { registrations: 'registrations' }
+
+  # get 'customer/signup'
+  # post 'customer/signup' => 'customer#create'
+  # get 'customer/signin'
+  # post 'customer/signin' => 'customer#login'
+  # get 'customer/signout'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 

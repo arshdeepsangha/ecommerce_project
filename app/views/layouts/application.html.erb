@@ -15,13 +15,26 @@
       <p><%= link_to 'Vehicles' , root_path %></p>
       <p><a href="http://localhost:3000/about">About Us</a></p>
       <p><a href="http://localhost:3000/contact">Contact Us</a></p>
-      <p><%= link_to 'Sign Up',customer_signup_path%></p>
-      <p><%= link_to 'Sign In',customer_signin_path%></p>
+      <% if user_signed_in? %>
+      <li>
+      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+      </li>
+    <% else %>
+      <li>
+      <%= link_to('Sign Up', new_user_registration_path) %> 
+      </li>
+      <li>
+      <%= link_to 'Sign In', user_session_path %>
+      </li>
+    <%end%>
+
 
     </header>
-    <p class="notice"><%= notice %></p>
+        <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
-
+        <% if user_signed_in? %>
+          <div>Signed in as <%= current_user.email %></div>
+        <% end %>
     <%= yield %>
   </body>
 </html>
