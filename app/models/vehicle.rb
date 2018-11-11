@@ -1,9 +1,10 @@
 class Vehicle < ApplicationRecord
   belongs_to :deal
   belongs_to :category
+  belongs_to :line_item
 
-  has_many :orders
-  has_many :users, :through => :orders
+  # has_many :orders
+  # has_many :users, :through => :orders
 
   paginates_per 5
 
