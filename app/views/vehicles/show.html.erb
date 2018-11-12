@@ -37,7 +37,7 @@
 <% if @car.stock > 0 %>
 
     <% if user_signed_in? %>
-    <div><%= link_to 'Add to Cart'%></div>
+    <div><%= link_to 'Add to Cart' , cart_create_path%></div>
     <% else %>
      <div><%= link_to 'Add to Cart' , user_session_path%></div>
     <% end %>

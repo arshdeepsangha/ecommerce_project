@@ -1,21 +1,18 @@
 class Vehicle < ApplicationRecord
-  after_update :update_in_stock
+  # after_update :update_in_stock
 
-  def update_in_stock
-    if stock > 0 
-      is_available = true
-    end
-  end
-
+  # def update_in_stock
+  #   if stock > 0 
+  #     is_available = true
+  #   end
+  # end
 
 
   belongs_to :deal
   belongs_to :category
   has_many :line_items
-  #belongs_to :line_item
 
-  # has_many :orders
-  # has_many :users, :through => :orders
+  has_many :orders , through: :line_items
 
   paginates_per 5
 
