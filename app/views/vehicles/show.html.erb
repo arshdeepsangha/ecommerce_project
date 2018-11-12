@@ -33,8 +33,20 @@
 <p><b>Body Type: </b><%=@car.body_type%></p>
 <p><b>Engine: </b><%=@car.engine%></p>
 <p><b>Transmission: </b><%=@car.transmission%></p>
-<p><b>Stock: </b><%=@car.stock%></p>
 
-<% if user_signed_in? %>
+<% if @car.stock > 0 %>
+
+    <% if user_signed_in? %>
     <div><%= link_to 'Add to Cart'%></div>
+    <% else %>
+     <div><%= link_to 'Add to Cart' , user_session_path%></div>
+    <% end %>
+    
+
+<% else %>
+<div class = "message_box">
+    <p class = "message">Sorry this Vehicle is Currently Unavailable.</p>
+</div>
+
 <% end %>
+

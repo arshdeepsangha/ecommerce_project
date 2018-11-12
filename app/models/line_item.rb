@@ -3,6 +3,6 @@ class LineItem < ApplicationRecord
   # belongs_to :vehicle
 
   #this is what i added.
-  has_one :vehicle
+  belongs_to :vehicle
   belongs_to :order
 end
