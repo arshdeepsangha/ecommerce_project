@@ -12,6 +12,6 @@ ActiveAdmin.register Vehicle do
 #   permitted
 # end
 
-    permit_params :manufacturer , :model , :price , :body_type , :engine ,:transmission ,:stock ,:deal_id ,:category_id ,:image
+    permit_params :manufacturer , :model , :price , :body_type , :engine ,:transmission ,:stock ,:deal_id ,:category_id ,:image ,:is_available
 
 end

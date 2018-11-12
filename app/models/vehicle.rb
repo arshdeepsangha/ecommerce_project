@@ -1,7 +1,17 @@
 class Vehicle < ApplicationRecord
+  after_update :update_in_stock
+
+  def update_in_stock
+    if stock > 0 
+      is_available = true
+    end
+  end
+
+
+
   belongs_to :deal
   belongs_to :category
-  belongs_to :line_item
+  #belongs_to :line_item
 
   # has_many :orders
   # has_many :users, :through => :orders
