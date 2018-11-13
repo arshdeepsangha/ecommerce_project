@@ -1,0 +1,41 @@
+<h1>Cart</h1>
+<p><%= link_to "Add more items" , root_path %></p>
+<br>
+<p><%= link_to "Clear Cart" , clear_path %></p>
+
+<%@total = 0%>
+
+<%@price = 0%>
+
+<table>
+    <tr>
+        <th>Manufacturer</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Remove</th>
+        <th>Unit Price</th>
+        
+    </tr>
+
+<% @cars_in_cart.each do |i| %>
+
+     <tr>
+        <td> <%=  i.manufacturer %></td>
+        <td> <%=  i.model%> </td>
+        <td> <%= number_field_tag 'quantity', '1'%></td>
+        <td><%= link_to 'Remove Item' ,cart_destroy_path(:remove_id => i.id)%></td>
+        <td> $<%= i.price%> </td>
+        <%@unit_price = i.price.to_d%>
+        <% @total += @unit_price%>
+    </tr>
+<% end %>
+
+</table>
+<b><p>Total: $<%=@total%></p></b>
+<br>
+<%= button_to "Checkout"%>
+   
+
+
+
+

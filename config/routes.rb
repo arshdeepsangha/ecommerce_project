@@ -1,16 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'cart/create'
+ 
   get 'cart/destroy'
   #devise_for :users
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 
-  # get 'customer/signup'
-  # post 'customer/signup' => 'customer#create'
-  # get 'customer/signin'
-  # post 'customer/signin' => 'customer#login'
-  # get 'customer/signout'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -38,7 +33,9 @@ Rails.application.routes.draw do
     end
   end
 
-
+   post 'cart/create' , to: "cart#create"
+   get '/cart/show' ,to: "cart#show", as: 'showcart'
+   get '/cart/clear' , to: "cart#clear" , as: 'clear'
 
   root to: 'vehicles#index'
 
