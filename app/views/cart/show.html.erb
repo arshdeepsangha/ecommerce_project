@@ -22,7 +22,7 @@
      <tr>
         <td> <%=  i.manufacturer %></td>
         <td> <%=  i.model%> </td>
-        <td> <%= number_field_tag 'quantity', '1'%></td>
+        <td> <%= number_field_tag :quantity, 1, min: 1, max: 10 %></td>
         <td><%= link_to 'Remove Item' ,cart_destroy_path(:remove_id => i.id)%></td>
         <td> $<%= i.price%> </td>
         <%@unit_price = i.price.to_d%>
@@ -33,7 +33,7 @@
 </table>
 <b><p>Total: $<%=@total%></p></b>
 <br>
-<%= button_to "Checkout"%>
+<%= button_to "Checkout" , cart_checkout_path(:quantity) , method: :post%>
    
 
 

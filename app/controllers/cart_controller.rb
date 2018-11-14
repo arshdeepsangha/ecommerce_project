@@ -33,6 +33,14 @@ class CartController < ApplicationController
 
   def checkout
 
+    # quantity = params[:quantity].to_i
+
+    # if(quantity == 4)
+    #   redirect_to root_path
+    # else
+    #   redirect_to showcart_path
+    # end
+    
   end
 
   private 

@@ -1,0 +1,41 @@
+<div>
+
+<br>
+<br>
+<% if show_link%>
+<b><p>Vehicle: <%= vehicle.manufacturer%> <%= link_to vehicle.model, vehicle%></p></b>
+
+<% else %>
+<b><p>Vehicle: <%= vehicle.manufacturer%> <%=  vehicle.model %></p></b>
+
+<% end %>
+<br>
+
+<% if show_all %>
+<p><b>Manufacturer: </b><%=vehicle.manufacturer%></p>
+<p><b>Model: </b><%=vehicle.model%></p>
+<p><b>Price: </b>$<%=vehicle.price%></p>
+<p><b>Body Type: </b><%=vehicle.body_type%></p>
+<p><b>Engine: </b><%=vehicle.engine%></p>
+<p><b>Transmission: </b><%=vehicle.transmission%></p>
+
+
+    <% if vehicle.stock > 0 %>
+
+        <% if user_signed_in? %>
+            <div><%= button_to 'Add to Cart' , cart_create_path(:vehicle_id => vehicle.id) %></div>
+        <% else %>
+            <div><%= button_to 'Add to Cart' , user_session_path %></div>
+        <% end %>
+    <% else %>
+        <div class = "message_box">
+            <p class = "message">Sorry this Vehicle is Currently Unavailable.</p>
+        </div>
+<% end %>
+<% end %>
+<br>
+
+<p><img src="<%=vehicle.image%>" alt="Car" onerror="this.src='/assets/imageNotFound.jpg'" height="300" width="500"></p>
+
+
+</div>

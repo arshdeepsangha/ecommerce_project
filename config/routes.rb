@@ -37,6 +37,8 @@ Rails.application.routes.draw do
    get '/cart/show' ,to: "cart#show", as: 'showcart'
    get '/cart/clear' , to: "cart#clear" , as: 'clear'
 
+   post 'cart/checkout' , to:"cart#checkout"
+
   root to: 'vehicles#index'
 
 

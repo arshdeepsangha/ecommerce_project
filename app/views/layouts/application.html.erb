@@ -20,6 +20,14 @@
           <%= link_to "View Cart" , showcart_path ,:method => :get%>
       <% end %>
 
+      <div>
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+        <% if user_signed_in? %>
+          <div>Signed in as <%= current_user.email %></div>
+        <% end %>
+      </div>
+
       <% if user_signed_in? %>
       <li>
       <%= link_to 'Logout', destroy_user_session_path, method: :delete ,class: "btn btn-primary" %>        
@@ -33,13 +41,32 @@
       </li>
     <%end%>
 
-
+   <div>
+      <h2>Categories</h2>
+      <% cat = Category.all%>
+      <% cat.each do |c|%>
+      <p><%= link_to c.name ,results_category_index_path(:category => c.id)%></p>
+      <%end%>
+   </div>
+    <div>
+    <%= form_tag(results_filter_index_path, method: "get") do %>
+    <%= label_tag(:query, "Filter:") %>
+    <%= collection_select(:query_deal,:deal_id,Deal.all.order(:name),:id,:name,{:include_blank => ''})%>
+    <%= submit_tag("Filter") %>
+    <% end %>
+    <br>
+    <br>
+   </div>
+    <div>
+      <%= form_tag(results_search_index_path, method: "get") do %>
+      <%= label_tag(:q, "Search:") %>
+      <%= text_field_tag(:q) %>
+      <%= collection_select(:query_category,:category_id,Category.all.order(:name),:id,:name,{:include_blank => 'Model'})%>
+      <%= submit_tag("Search") %>
+      <% end %>
+    </div>
     </header>
-        <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-        <% if user_signed_in? %>
-          <div>Signed in as <%= current_user.email %></div>
-        <% end %>
+       
     <%= yield %>
   </body>
 </html>
