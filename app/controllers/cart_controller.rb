@@ -98,8 +98,8 @@ class CartController < ApplicationController
     order = Order.create(quantity: number_of_cars , user_id: current_user.id , order_status_id: 1 ,total: @total ,taxes: @taxes ,tax_info: @tax_info ,grand_total: @grand_total)
 
     number_of_cars.times do |j|
-
-      LineItem.create(quantity: @quantities[j],total: 0 ,vehicle_id: @vehicles[j],order: order)
+      sold_price = Vehicle.find(@vehicles[j]).price
+      LineItem.create(quantity: @quantities[j],total: sold_price ,vehicle_id: @vehicles[j],order: order)
       
     end
     session[:cars_cart] = []

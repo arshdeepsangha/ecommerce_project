@@ -1,0 +1,52 @@
+
+<p><%= link_to "View all Orders" , order_index_path%></p>
+
+<h1>Order Details</h1>
+
+<p><b>Order Date: </b> <%= @order.created_at%></p>
+<p><b>Order Status:  </b><%= @order.order_status.name%></p>
+<p><b>Order Summary</b></p>
+<table>
+<tr>
+    <th>Manufacturer</th>
+    <th>Model</th>
+    <th>Quantity</th>
+    <th>Price</th>
+<tr>
+<% @order.line_items.each do |car|%>
+
+<tr>
+    <td><%= car.vehicle.manufacturer%></td>
+    <td><%= car.vehicle.model%></td>
+    <td><%= car.quantity%></td>
+    <td><%= number_to_currency(car.total * car.quantity)%></td>
+</tr>
+<% end %>
+
+<tr>
+    <td></td>
+    <td></td>
+    <td><b>Total: </b></td>
+    <td><%=number_to_currency( @order.total)%></td>
+</tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td><b>Taxes: </b></td>
+    <td><%=number_to_currency( @order.taxes)%></td>
+</tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td><b>Tax Information </b></td>
+    <td><%= @order.tax_info%></td>
+</tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td><b>Grand Total: </b></td>
+    <td><%=number_to_currency( @order.grand_total)%></td>
+</tr>
+
+
+</table>

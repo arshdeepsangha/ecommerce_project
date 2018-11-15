@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
  
+  get 'order/index'
+  get 'order/show'
   get 'cart/destroy'
   #devise_for :users
 

@@ -19,6 +19,11 @@
       <% if user_signed_in? %>
           <%= link_to "View Cart" , showcart_path ,:method => :get%>
       <% end %>
+      <br>
+      <% if user_signed_in? %>
+          <%= link_to "View Previous Orders" , order_index_path ,:method => :get%>
+      <% end %>
+
 
       <div>
        <p class="notice"><%= notice %></p>
