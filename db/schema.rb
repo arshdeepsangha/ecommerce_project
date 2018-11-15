@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_13_005253) do
+ActiveRecord::Schema.define(version: 2018_11_15_033357) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -38,29 +38,10 @@ ActiveRecord::Schema.define(version: 2018_11_13_005253) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "carts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "customers", force: :cascade do |t|
-    t.string "username"
-    t.string "firstname"
-    t.string "lastname"
-    t.string "address"
-    t.string "city"
-    t.string "email"
-    t.integer "province_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "password_digest"
-    t.index ["province_id"], name: "index_customers_on_province_id"
   end
 
   create_table "deals", force: :cascade do |t|
@@ -76,8 +57,8 @@ ActiveRecord::Schema.define(version: 2018_11_13_005253) do
     t.integer "vehicle_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "cart_id"
-    t.index ["cart_id"], name: "index_line_items_on_cart_id"
+    t.integer "order_id"
+    t.index ["order_id"], name: "index_line_items_on_order_id"
     t.index ["vehicle_id"], name: "index_line_items_on_vehicle_id"
   end
 
@@ -89,18 +70,16 @@ ActiveRecord::Schema.define(version: 2018_11_13_005253) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "quantity"
-    t.integer "vehicle_id"
-    t.integer "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.integer "line_item_id"
     t.integer "order_status_id"
-    t.index ["customer_id"], name: "index_orders_on_customer_id"
-    t.index ["line_item_id"], name: "index_orders_on_line_item_id"
+    t.decimal "total"
+    t.decimal "taxes"
+    t.string "tax_info"
+    t.decimal "grand_total"
     t.index ["order_status_id"], name: "index_orders_on_order_status_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
-    t.index ["vehicle_id"], name: "index_orders_on_vehicle_id"
   end
 
   create_table "pages", force: :cascade do |t|

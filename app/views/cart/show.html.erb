@@ -17,23 +17,31 @@
         
     </tr>
 
-<% @cars_in_cart.each do |i| %>
-
+<%= form_tag(cart_checkout_path, method: "post") do %>
+ 
+<% @cars_in_cart.each_with_index do |i,index| %>
      <tr>
         <td> <%=  i.manufacturer %></td>
         <td> <%=  i.model%> </td>
-        <td> <%= number_field_tag :quantity, 1, min: 1, max: 10 %></td>
+        <td> <%= number_field_tag 'quantity_'+index.to_s, 1, min: 1, max: 10 %></td>
+        <%= hidden_field_tag('vehicle_id_'+index.to_s, i.id) %>
         <td><%= link_to 'Remove Item' ,cart_destroy_path(:remove_id => i.id)%></td>
-        <td> $<%= i.price%> </td>
+        <td><%= number_to_currency(i.price)%> </td>
         <%@unit_price = i.price.to_d%>
         <% @total += @unit_price%>
     </tr>
 <% end %>
-
 </table>
-<b><p>Total: $<%=@total%></p></b>
+<%= hidden_field_tag(:vehicle_count, @cars_in_cart.size) %>
+ <%= hidden_field_tag(:total, @total) %>
 <br>
-<%= button_to "Checkout" , cart_checkout_path(:quantity) , method: :post%>
+<div>
+<div>
+<br>
+
+<%= submit_tag("Checkout") %>
+<% end %>
+
    
 
 

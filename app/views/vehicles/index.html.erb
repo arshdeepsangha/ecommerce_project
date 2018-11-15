@@ -1,4 +1,11 @@
 
+
+<%= paginate @cars %>
+
+
 <%= render  partial: 'vehicle',
             collection: @cars,
-            locals: {show_link: true , show_all: false} %>
+            locals: {show_link: true , show_all: false , all: true} %>
+
+
+<%= paginate @cars %>

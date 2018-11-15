@@ -1,0 +1,57 @@
+<h1>Your Order Has been Placed !</h1>
+
+<h3>Order Status: <%= @order_last.last.order_status.name%></h3>
+
+<% order_stuff = @order_last.last%>
+
+<h3>Order Summary: </h3>
+<br>
+
+<table>
+    <tr>
+        <th>Manufacturer</th>
+        <th>Model</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+        <th>Total Price</th>
+    </tr>
+<% order_stuff.line_items.each do |car|%>
+    <tr>
+        <td><%= car.vehicle.manufacturer %></td>
+        <td><%= car.vehicle.model %></td>
+        <td><%= car.quantity %></td>
+        <td><%= number_to_currency(car.vehicle.price) %></td>
+        <% total_price = car.quantity * car.vehicle.price %>
+        <td><%= number_to_currency(total_price)%></td>
+    </tr>
+
+<% end %>
+    <tr>
+        <td><%=%></td>
+        <td><%=%></td>
+        <td><%=%></td>
+        <td><b>Total: </b></td>
+        <td><%= number_to_currency(@total)%></td>
+    </tr>
+    <tr>
+        <td><%=%></td>
+        <td><%=%></td>
+        <td><%=%></td>
+        <td><b>Taxes: </b></td>
+        <td><%= number_to_currency(@taxes)%></td>
+    </tr>
+    <tr>
+        <td><%=%></td>
+        <td><%=%></td>
+        <td><%=%></td>
+        <td><b>Tax Info: </b></td>
+        <td><%= @tax_info%></td>
+    </tr>
+    <tr>
+        <td><%=%></td>
+        <td><%=%></td>
+        <td><%=%></td>
+        <td><b>GrandTotal: </b></td>
+        <td><%= number_to_currency(@grand_total)%></td>
+    </tr>
+</table>
