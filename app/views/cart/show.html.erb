@@ -38,8 +38,9 @@
 <div>
 <div>
 <br>
-
+<% if @cars_in_cart.present? %>
 <%= submit_tag("Checkout") %>
+<% end %>
 <% end %>
 
    

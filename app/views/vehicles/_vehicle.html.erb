@@ -7,10 +7,10 @@
 
 <% if show_link%>
 <b><p>Vehicle: <%= vehicle.manufacturer%> <%= link_to vehicle.model, vehicle%></p></b>
-
+<p><img src="<%=vehicle.image%>" alt="Car" onerror="this.src='/assets/imageNotFound.jpg'" height="300" width="500"></p>
 <% else %>
 <b><p>Vehicle: <%= vehicle.manufacturer%> <%=  vehicle.model %></p></b>
-
+<p><img src="<%=vehicle.image%>" alt="Car" onerror="this.src='/assets/imageNotFound.jpg'" height="300" width="500"></p>
 <% end %>
 <br>
 
@@ -39,7 +39,7 @@
 <% end %>
 <br>
 
-<p><img src="<%=vehicle.image%>" alt="Car" onerror="this.src='/assets/imageNotFound.jpg'" height="300" width="500"></p>
+
 
 
 </div>

@@ -106,6 +106,7 @@ class CartController < ApplicationController
     @order_last = Order.all
 
     
+    
   end
 
   private 

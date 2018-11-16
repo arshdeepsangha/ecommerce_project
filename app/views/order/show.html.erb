@@ -5,6 +5,14 @@
 
 <p><b>Order Date: </b> <%= @order.created_at%></p>
 <p><b>Order Status:  </b><%= @order.order_status.name%></p>
+<% if @order.order_status.name == "Pending" %>
+
+<%= button_to "Pay Now"%>
+  
+<% end %>
+<br>
+
+
 <p><b>Order Summary</b></p>
 <table>
 <tr>
@@ -50,3 +58,5 @@
 
 
 </table>
+
+

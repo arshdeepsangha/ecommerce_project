@@ -1,6 +1,6 @@
 class OrderController < ApplicationController
   def index
-    @orders = Order.all.where(user_id: current_user.id)
+    @orders = Order.all.where(user_id: current_user.id).order('created_at DESC')
   end
 
   def show
