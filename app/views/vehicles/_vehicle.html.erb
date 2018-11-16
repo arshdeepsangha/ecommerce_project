@@ -1,14 +1,15 @@
 <div>
 
-<br>
-<br>
-
-
 
 <% if show_link%>
 <b><p>Vehicle: <%= vehicle.manufacturer%> <%= link_to vehicle.model, vehicle%></p></b>
 <p><img src="<%=vehicle.image%>" alt="Car" onerror="this.src='/assets/imageNotFound.jpg'" height="300" width="500"></p>
 <% else %>
+
+<div>
+      <p><%= link_to "Categories" , root_path %> >> <%= link_to "#{vehicle.category.name}" , results_category_index_path(:category => vehicle.category.id)%> >> <%= link_to "#{vehicle.model}" , vehicle_path(:id => vehicle.id)%></p>
+</div>
+
 <b><p>Vehicle: <%= vehicle.manufacturer%> <%=  vehicle.model %></p></b>
 <p><img src="<%=vehicle.image%>" alt="Car" onerror="this.src='/assets/imageNotFound.jpg'" height="300" width="500"></p>
 <% end %>

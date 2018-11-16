@@ -40,6 +40,8 @@ Rails.application.routes.draw do
    get '/cart/show' ,to: "cart#show", as: 'showcart'
    get '/cart/clear' , to: "cart#clear" , as: 'clear'
 
+   get '/welcome/index' ,to: "welcome#index", as: 'welcome'
+
    post 'cart/checkout' , to:"cart#checkout"
 
    match "*path", to: "welcome#catch_404", via: :all
