@@ -60,6 +60,8 @@ group :development do
   gem 'kaminari'
 
   gem 'breadcrumbs_on_rails'
+
+  gem 'stripe'
   
 end
 

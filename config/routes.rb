@@ -44,7 +44,13 @@ Rails.application.routes.draw do
 
    post 'cart/checkout' , to:"cart#checkout"
 
-   match "*path", to: "welcome#catch_404", via: :all
+   #match "*path", to: "welcome#catch_404", via: :all
+
+   resources :charges , only: [:new , :create]
+
+  #  get '/charges/new' , to: "charges#new", as: 'new_charge'
+
+  #  get '/charges/create' , to: "charges#create", as: 'create'
 
   root to: 'vehicles#index'
 

@@ -4,10 +4,10 @@ class ApplicationController < ActionController::Base
 
     
 
-    rescue_from ActionController::RoutingError do |exception|
-        logger.error 'Routing error occurred'
-        render plain: '404 Not found', status: 404 
-    end
+    # rescue_from ActionController::RoutingError do |exception|
+    #     logger.error 'Routing error occurred'
+    #     render plain: '404 Not found', status: 404 
+    # end
 
     # def index
     #     add_breadcrumb "home", :root_path
