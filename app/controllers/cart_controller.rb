@@ -43,8 +43,31 @@ class CartController < ApplicationController
 
       @total += Vehicle.find(params["vehicle_id_#{i}".to_sym].to_i).price * params["quantity_#{i}".to_sym].to_i
 
-      @vehicles << params["vehicle_id_#{i}".to_sym].to_i
-      @quantities << params["quantity_#{i}".to_sym].to_i
+      @car_in_stock = Vehicle.find(params["vehicle_id_#{i}".to_sym].to_i)
+      @q = params["quantity_#{i}".to_sym].to_i
+
+      if @q > @car_in_stock.stock
+
+        @error = "Only #{@car_in_stock.stock} #{@car_in_stock.manufacturer} #{@car_in_stock.model} in Stock !" 
+
+        return redirect_to showcart_path(:error => @error)
+
+      else
+
+        @car_in_stock.stock = @car_in_stock.stock - @q
+
+        if @car_in_stock.stock == 0
+
+          @car_in_stock.is_available = false
+
+        end
+
+        @car_in_stock.save
+
+        @vehicles << params["vehicle_id_#{i}".to_sym].to_i
+        @quantities << params["quantity_#{i}".to_sym].to_i
+      end
+      
     end
 
     @gst_value = 1

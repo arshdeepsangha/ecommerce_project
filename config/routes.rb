@@ -48,9 +48,9 @@ Rails.application.routes.draw do
 
    resources :charges , only: [:new , :create]
 
-  #  get '/charges/new' , to: "charges#new", as: 'new_charge'
+    # get '/charges/new' , to: "charges#new", as: 'new_charge'
 
-  #  get '/charges/create' , to: "charges#create", as: 'create'
+    # get '/charges/create' , to: "charges#create", as: 'create'
 
   root to: 'vehicles#index'
 

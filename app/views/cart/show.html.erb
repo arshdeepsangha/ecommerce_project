@@ -17,6 +17,12 @@
         
     </tr>
 
+
+
+<% if params[:error].present? %>
+  <p class= "error"><%= params[:error] %></p>
+<% end %>
+
 <%= form_tag(cart_checkout_path, method: "post") do %>
  
 <% @cars_in_cart.each_with_index do |i,index| %>
