@@ -1,0 +1,12 @@
+<h1>Driving License</h1>
+
+
+<% if @user.file.attached? %>
+
+<h2><%= link_to 'View File' , @user.file %></h2>
+<br>
+<h2><%= link_to 'Download File' , @user.file , download: '' %></h2>
+
+<% else %>
+<h2>You did not upload your Driving License.</h2>
+<% end %>

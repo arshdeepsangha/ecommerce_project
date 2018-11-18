@@ -25,6 +25,10 @@
                 required: true %>
     <label>Province</label>
     <%= f.collection_select :province_id, Province.order(:name), :id, :name, prompt: 'Choose your Province', required: true %>
+    <br>
+    <label>Upload License</label>
+    <%= f.file_field :file %>
+
   </div>
 
   <div class="form-actions">

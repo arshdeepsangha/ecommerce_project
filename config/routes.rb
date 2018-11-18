@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
  
+  get 'license/upload'
   get 'welcome/catch_404'
   get 'order/index'
   get 'order/show'
@@ -51,6 +52,9 @@ Rails.application.routes.draw do
     # get '/charges/new' , to: "charges#new", as: 'new_charge'
 
     # get '/charges/create' , to: "charges#create", as: 'create'
+
+    get 'license/form' , to: "license#form" , as: 'form'
+    get 'license/upload' 
 
   root to: 'vehicles#index'
 

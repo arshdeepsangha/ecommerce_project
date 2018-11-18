@@ -6,4 +6,10 @@ class User < ApplicationRecord
 
   belongs_to :province
   has_many :orders
+
+  has_one_attached :file
+
+  #user.file.attachment.blob.filename
+  
 end
+
