@@ -31,6 +31,7 @@ class ChargesController < ApplicationController
 
         order = Order.find(@order_id)
 
+        order.charge_id = charge.id
         order.order_status_id = 2
 
         order.save

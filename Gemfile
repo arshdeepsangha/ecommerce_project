@@ -62,6 +62,10 @@ group :development do
   gem 'breadcrumbs_on_rails'
 
   gem 'stripe'
+
+
+
+
   
 end
 
