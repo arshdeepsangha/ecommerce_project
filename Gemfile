@@ -6,7 +6,7 @@ ruby '2.5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use sqlite3 as the database for Active Record
-
+gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -45,17 +45,17 @@ gem 'bcrypt'
 
 
 
-group :production do
+# group :production do
 
-  gem 'pg'
-end
+#   gem 'pg'
+# end
 
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
-  gem 'sqlite3'
+
 end
 
 group :development do
@@ -70,9 +70,9 @@ group :development do
 
   gem 'breadcrumbs_on_rails'
 
-  gem 'sqlite3'
-
   gem 'stripe'
+
+  gem 'rubocop', require: false
 
 end
 
