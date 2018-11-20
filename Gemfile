@@ -42,7 +42,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'simple_form'
 gem 'bcrypt'
-
+gem 'stripe'
 
 
 
@@ -71,7 +71,7 @@ group :development do
 
   gem 'breadcrumbs_on_rails'
 
-  gem 'stripe'
+
 
   gem 'rubocop', require: false
 
