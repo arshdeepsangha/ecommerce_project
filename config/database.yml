@@ -27,49 +27,55 @@
 #   <<: *default
 #   database: db/production.sqlite3
 
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") {5} %>
+
+# development:
+#   <<: *default
+#   database: cars_development
+#   #host: ''
+#   username: user
+#   password: xxxx
+
+# host: localhost
+
+# test: 
+#   <<: *default
+#   database: cars_test
+#   #host: ''
+
+
+# production:
+#   <<: *default
+#   database: cars_production
+#   #username: cars
+#   #host: ''
+#   #password: <%= ENV['PASSWORD'] %>
+#   username: user
+#   password: xxxx
+
+
 default: &default
   adapter: postgresql
   encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") {5} %>
 
-development:
+  development:
   <<: *default
   database: cars_development
 
-test: 
+  test:
   <<: *default
   database: cars_test
 
-production:
+  production:
   <<: *default
   database: cars_production
   username: cars
-  password: <%= ENV['PASSWORD'] %>
-
-
-
-
-
-
-
-# trying to add postgresql
-
-
-# development:
-#   adapter: postgresql
-#   database: my_database_development
-#   pool: 5
-#   timeout: 5000
-
-# test:
-#   adapter: postgresql
-#   database: my_database_development
-#   pool: 5
-#   timeout: 5000
-
-# production:
-#   adapter: postgresql
-#   database: my_database_development
-#   pool: 5
-#   timeout: 5000
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>

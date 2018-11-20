@@ -20,7 +20,7 @@
           <%= link_to "View License" , form_path %>
       <% end %>
       <br>
-
+      current_user.file
       <% if user_signed_in? %>
           <%= link_to "View Cart" , showcart_path ,:method => :get%>
       <% end %>
