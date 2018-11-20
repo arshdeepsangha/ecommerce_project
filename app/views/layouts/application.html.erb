@@ -13,8 +13,15 @@
     <header>
       <h1>Sirra Gaddian</h1>
       <p><%= link_to 'Vehicles' , root_path %></p>
-      <p><%= link_to 'About' , about_path %></p>
-      <p><%= link_to 'Contact' ,contact_path %></p>
+
+       <% pages = Page.all %>
+
+      <% pages.each do |page| %>
+        <%= link_to "#{page.title}" ,permalink_path(:permalink => page.permalink) %>
+        <br>
+      <% end %>
+      
+      <br>
 
       <% if user_signed_in? %>
           <%= link_to "View License" , form_path %>
