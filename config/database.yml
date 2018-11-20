@@ -69,6 +69,8 @@ default: &default
   development:
     <<: *default
     database: cars_development
+    username: cars
+    password: <%= ENV['CARS_DATABASE_PASSWORD'] %>
 
   test:
     <<: *default

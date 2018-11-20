@@ -23,5 +23,7 @@
 
 # end
 
+OrderStatus.create(name: "Pending")
+OrderStatus.create(name: "Paid")
 
-AdminUser.create!(email: 'arsh98000@gmail.com', password: 'password!', password_confirmation: 'password!') 
+#AdminUser.create!(email: 'arsh98000@gmail.com', password: 'password!', password_confirmation: 'password!')
