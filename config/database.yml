@@ -67,15 +67,15 @@ default: &default
 
 
   development:
-  <<: *default
-  database: cars_development
+    <<: *default
+    database: cars_development
 
   test:
-  <<: *default
-  database: cars_test
+    <<: *default
+    database: cars_test
 
   production:
-  <<: *default
-  database: cars_production
-  username: cars
-  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+    <<: *default
+    database: cars_production
+    username: cars
+    password: <%= ENV['CARS_DATABASE_PASSWORD'] %>
