@@ -13,8 +13,8 @@
     <header>
       <h1>Sirra Gaddian</h1>
       <p><%= link_to 'Vehicles' , root_path %></p>
-      <p><a href="http://localhost:3000/about">About Us</a></p>
-      <p><a href="http://localhost:3000/contact">Contact Us</a></p>
+      <p><%= link_to 'About' , about_path %></p>
+      <p><%= link_to 'Contact' ,contact_path %></p>
 
       <% if user_signed_in? %>
           <%= link_to "View License" , form_path %>
