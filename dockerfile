@@ -7,4 +7,4 @@ COPY Gemfile /cars/Gemfile
 COPY Gemfile.lock /cars/Gemfile.lock
 RUN bundle install
 COPY . /cars
-CMD bundle exec puma -C config/puma.rbs
+CMD bundle exec puma -C /cars/config/puma.rb
