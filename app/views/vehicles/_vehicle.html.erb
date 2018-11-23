@@ -2,8 +2,15 @@
 
 
 <% if show_link%>
-<b><p>Vehicle: <%= vehicle.manufacturer%> <%= link_to vehicle.model, vehicle%></p></b>
-<p><img src="<%=vehicle.image%>" alt="Car" onerror="this.src='/assets/imageNotFound.JPG'" height="300" width="500"></p>
+
+<div class="col-lg-3 col-md-4 col-xs-6">
+          <a href="#" class="d-block mb-4 h-100">
+            <b><p><%=  link_to vehicle.manufacturer + " " +vehicle.model, vehicle , class: "gaddi"%></p></b>
+            <img src="<%=vehicle.image%>" class="img-fluid img-thumbnail" alt="Car" onerror="this.src='/assets/imageNotFound.JPG'" height="300" width="500">
+          </a>
+</div>
+
+
 <% else %>
 
 <div>
@@ -35,9 +42,10 @@
             <div><%= button_to 'Add to Cart' , user_session_path %></div>
         <% end %>
     <% else %>
-        <div class = "message_box">
-            <p class = "message">Sorry this Vehicle is Currently Unavailable.</p>
-        </div>
+        <div class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Oh snap!</strong> <p class="alert-link">Sorry this Vehicle is Currently Unavailable.</p>
+       </div>
 <% end %>
 <% end %>
 <br>

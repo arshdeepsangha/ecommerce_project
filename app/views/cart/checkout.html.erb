@@ -2,7 +2,7 @@
 
 <h3>Order Status: <%= @order_last.last.order_status.name%></h3>
 
-<%= link_to "Pay Now" , new_charge_path(:id => @order_last.last.id )%>
+<%= link_to "Pay Now" , new_charge_path(:id => @order_last.last.id , class: 'btn btn-primary' )%>
 
 <% order_stuff = @order_last.last%>
 

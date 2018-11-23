@@ -6,8 +6,8 @@ ruby '2.5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
-gem 'pg'
+
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -38,18 +38,27 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'activeadmin'
-gem 'devise'
 gem 'carrierwave'
-gem 'simple_form'
 gem 'bcrypt'
+gem 'devise'
+gem 'simple_form'
+
 gem 'stripe'
 
+gem 'bootstrap', '~> 4.1.3'
+
+gem 'sprockets-rails'
+
+gem 'link_with_icon'
+
+gem 'devise-bootstrap-views', '~> 1.0'
 
 
-# group :production do
 
-#   gem 'pg'
-# end
+group :production do
+
+  gem 'pg'
+end
 
 
 group :development, :test do
@@ -71,7 +80,7 @@ group :development do
 
   gem 'breadcrumbs_on_rails'
 
-
+  gem 'sqlite3'
 
   gem 'rubocop', require: false
 

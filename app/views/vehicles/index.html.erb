@@ -1,12 +1,25 @@
+   <div>
+      <h2>Categories</h2>
+      <% cat = Category.all%>
+      <% cat.each do |c|%>
+      <p><%= link_to c.name ,results_category_index_path(:category => c.id)%></p>
+      <%end%>
+   </div>
 
+    <div>
+    <%= form_tag(results_filter_index_path, method: "get") do %>
+    <%= label_tag(:query, "Filter:") %>
+    <%= collection_select(:query_deal,:deal_id,Deal.all.order(:name),:id,:name)%>
+    <%= submit_tag("Filter") %>
+    <% end %>
 
+   </div>
+<div class= "paginate">
 <%= paginate @cars %>
-
-
+</div>
 
 <%= render  partial: 'vehicle',
             collection: @cars,
             locals: {show_link: true , show_all: false , all: true} %>
 
 
-<%= paginate @cars %>

@@ -7,7 +7,7 @@
 <p><b>Order Status:  </b><%= @order.order_status.name%></p>
 <% if @order.order_status.name == "Pending" %>
 
-<%= link_to "Pay Now" , new_charge_path(:id => @order.id )%>
+<%= link_to "Pay Now" , new_charge_path(:id => @order.id ) , class: "btn btn-primary btn-lg"%>
   
 <% end %>
 <br>

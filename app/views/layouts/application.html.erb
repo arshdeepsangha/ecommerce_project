@@ -4,92 +4,88 @@
     <title>Cars</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
-      <h1>Sirra Gaddian</h1>
-      <p><%= link_to 'Vehicles' , root_path %></p>
-
-       <% pages = Page.all %>
-
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <%= link_to "Sirra Gaddian" ,root_path , class: "navbar-brand" %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to "Vehicles" ,root_path , class: "nav-link" %>
+        </li>
+      <% pages = Page.all %>
       <% pages.each do |page| %>
-        <%= link_to "#{page.title}" ,permalink_path(:permalink => page.permalink) %>
-        <br>
+
+        <li class="nav-item">
+          <%= link_to "#{page.title}" ,permalink_path(:permalink => page.permalink) , class: "nav-link" %>
+        </li>
       <% end %>
+      </ul>
       
-      <br>
 
-      <% if user_signed_in? %>
+      <% if user_signed_in?%>
+         <div>
+          <a href="<%= showcart_path %>" data-role="button" data-icon="info" data-mini="true"><img src="/assets/cart.png" height="42" width="42"></a>
+         </div>
+        <div class="dropdown">
+           <a href="#" data-role="button" class="dropbtn" data-icon="info" data-mini="true"><img src="/assets/avatar.png" height="42" width="42" margin-left="20"></a>
+        <div class="dropdown-content">
+          <%= link_to current_user.email , root_path %>
           <%= link_to "View License" , form_path %>
-      <% end %>
-      <br>
-      <% if user_signed_in? %>
-          <%= link_to "View Cart" , showcart_path ,:method => :get%>
-      <% end %>
-      <br>
-      <% if user_signed_in? %>
-          <%= link_to "View Previous Orders" , order_index_path ,:method => :get%>
-      <% end %>
-
-
-      <div>
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-       
-        <% if user_signed_in? %>
-          <div>Signed in as <%= current_user.email %></div>
-        <% end %>
-      </div>
-
-      <% if user_signed_in? %>
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete ,class: "btn btn-primary" %>        
-    <% else %>
-      <%= link_to('Sign Up', new_user_registration_path) %> 
-      <br>
-      <%= link_to 'Sign In', user_session_path %>
-    <%end%>
-
-   <div>
-      <h2>Categories</h2>
-      <% cat = Category.all%>
-      <% cat.each do |c|%>
-      <p><%= link_to c.name ,results_category_index_path(:category => c.id)%></p>
+          <%= link_to "View Orders" , order_index_path ,:method => :get%>
+        </div>
+        </div>
       <%end%>
-   </div>
-    <div>
-    <%= form_tag(results_filter_index_path, method: "get") do %>
-    <%= label_tag(:query, "Filter:") %>
-    <%= collection_select(:query_deal,:deal_id,Deal.all.order(:name),:id,:name,{:include_blank => ''})%>
-    <%= submit_tag("Filter") %>
-    <% end %>
-    <br>
-    <br>
-   </div>
-    <div>
-      <%= form_tag(results_search_index_path, method: "get") do %>
-      <%= label_tag(:q, "Search:") %>
-      <%= text_field_tag(:q) %>
-      <%= collection_select(:query_category,:category_id,Category.all.order(:name),:id,:name,{:include_blank => 'Model'})%>
-      <%= submit_tag("Search") %>
+
+<div class="center">
+      <%= form_tag(results_search_index_path, method: "get" , class: "form-inline my-2 my-lg-0") do %>
+      <%# <%= label_tag(:q, "Search:") %>
+      <%= text_field_tag :q , "" , class: "form-control mr-sm-2" %>
+      <%= collection_select(:query_category,:category_id,Category.all.order(:name),:id,:name,{:include_blank => 'Model'}, {:class=>"custom-select"})%>
+      <%= submit_tag "Search" , class: "btn btn-primary" %>
       <% end %>
+      </div>
+<div class="good">
+      <ul class="navbar-nav mr-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item ">
+              <%= link_to 'Logout', destroy_user_session_path, method: :delete ,class: "btn btn-primary" %>        
+           </li>
+          <% else %>
+            <li class="nav-item ">
+            <%= link_to'Sign Up', new_user_registration_path ,class: "nav-link" %> 
+            </li>
+            <li class="nav-item ">
+              <%= link_to 'Sign In', user_session_path , class: "nav-link" %>
+            </li>
+            <%end%>
+      </ul>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
+    </div>
+    </nav>
+
+
+    <hr class="my-4">
+
+
 
     </header>
     <%= yield %>
-
     <br>
-    <footer>
-      <div>
-        <p class="footer_text">Copywrong Sirra Gaddian 2018</p>
+    <br>
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright © Sirra Gaddian 2017</p>
       </div>
+      <!-- /.container -->
     </footer>
   </body>
 </html>
